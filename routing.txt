@@ -1,0 +1,18 @@
+Routing:
+
+
+GET,POST /login                                 -bejelentkezés
+
+GET /tanarok                                    -tanárok listazasa
+GET, POST /tanarok/add                          -uj tanar hozzadása
+GET, POST /tanarok/edit/:id                     -id tanar szerkesztése
+POST /tanarok/delete/:id                        -id tanar törlése
+
+
+GET /diak                                    -diákok listazasa
+GET, POST /diak/add                          -uj diák hozzadása
+GET, POST /diak/edit/:id                     -id diák szerkesztése
+POST /diak/delete/:id                        -id diák törlése
+
+
+GET /                            -tanárok listázása és tnaulók listázása gomb
