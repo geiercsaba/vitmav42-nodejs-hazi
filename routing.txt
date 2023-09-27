@@ -7,22 +7,82 @@ tanarform.html              -egy form uj tanár hozzáadásához vagy szerkeszt�
 diakok.html                 -egy táblázat a tanarok listazasához
 diakform.html               -egy form uj diák hozzáadásához vagy szerkesztéshez
 
+Middleware struktúra:
+
+middleware/
+    renderMW
+
+middleware/auth/
+    checkPassMW         -elmenti a megadott jelszót, ha meg van adva
+    authMW              -továbbenged, ha be van jeletkezve
+    logoutMW            -törli a sessiont
+
+middleware/tanar/
+    getTanarokMW          -elemnti a tanarok valtozóba a tanárokat
+    getTanarMW            -elementi a tanar változóba egy tanár adatait
+    saveTanarMW           -elementi(vagy firissíti) a tanár adatait az adatbázisban
+    delTanarMW            -törli egy tanár adatait 
+
+middleware/diak/
+    getDiakokMW           -elemnti a diakok valtozóba a diakokat
+    getDiakMW             -elementi a diak változóba egy diak adatait
+    saveDiakMW            -elementi(vagy firissíti) a tanár adatait az adatbázisban
+    delDiakMW             -törli egy tanár adatait 
+
+
+
 
 Routing:
 
+GET /                                            -tanárok listázása és tanulók listázása gomb
+    checkPassMW
+    renderMW(index)
+
+GET /logout                                      -kijelentkezés
+    logoutMW
+    
 
 GET       /tanarok                            -tanárok listazasa
+    authMW
+    getTanarokMW
+    renderMW(tanarok)
+
 GET, POST /tanar/add                          -uj tanar hozzadása
+    authMW
+    saveTanarMW
+    renderMW(tanarform)
+
 GET, POST /tanar/edit/:id                     -id tanar szerkesztése
+    authMW
+    getTanarMW
+    saveTanarMW
+    renderMW(tanarform)
+
 GET       /tanar/delete/:id                   -id tanar törlése
+    authMW
+    getTanarMW
+    delTanarMW
 
 
 GET      /diakok                                 -diákok listazasa
+    authMW
+    getDiakokMW
+    renderMW(diakok)
+
 GET,POST /diak/add                               -uj diák hozzadása
+    authMW
+    saveDiakMW
+    renderMW(diakform)
+
 GET,POST /diak/edit/:id                          -id diák szerkesztése
+    authMW
+    getDiakMW
+    saveDiakMW
+    renderMW(diakform)
+
 GET      /diak/delete/:id                        -id diák törlése
-GET      /diak                                   -diákok listazasa
+    authMW
+    getDiakMW
+    delDiakMW
+    
 
-
-GET /logout                                      -kijelentkezés
-GET /                                            -tanárok listázása és tanulók listázása gomb

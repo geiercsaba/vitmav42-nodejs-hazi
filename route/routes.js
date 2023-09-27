@@ -39,5 +39,9 @@ module.exports = function(app) {
     app.get('/diak/delete/:id',
     );
 
+    app.use('/',
+        renderMW(objRepo, 'index')
+    );
+
     
 };
