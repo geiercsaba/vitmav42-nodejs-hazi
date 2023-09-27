@@ -12,11 +12,11 @@ module.exports = function(app) {
     );
     
     app.get('/tanar/add',
-        renderMW(objRepo, 'tanarokform')
+        renderMW(objRepo, 'tanarform')
     );
 
     app.use('/tanar/edit/:id',
-        renderMW(objRepo, 'tanarokform')
+        renderMW(objRepo, 'tanarform')
     );
 
     app.get('/tanar/delete/:id',
