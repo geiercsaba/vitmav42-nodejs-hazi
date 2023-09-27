@@ -42,29 +42,29 @@ GET /logout                                      -kijelentkezés
     logoutMW
     
 
-GET       /tanarok                            -tanárok listazasa
+GET /tanarok                                     -tanárok listazasa
     authMW
     getTanarokMW
     renderMW(tanarok)
 
-GET, POST /tanar/add                          -uj tanar hozzadása
+GET, POST /tanar/add                             -uj tanar hozzadása
     authMW
     saveTanarMW
     renderMW(tanarform)
 
-GET, POST /tanar/edit/:id                     -id tanar szerkesztése
+GET, POST /tanar/edit/:id                        -id tanar szerkesztése
     authMW
     getTanarMW
     saveTanarMW
     renderMW(tanarform)
 
-GET       /tanar/delete/:id                   -id tanar törlése
+GET /tanar/delete/:id                           -id tanar törlése
     authMW
     getTanarMW
     delTanarMW
 
 
-GET      /diakok                                 -diákok listazasa
+GET /diakok                                      -diákok listazasa
     authMW
     getDiakokMW
     renderMW(diakok)
@@ -80,9 +80,8 @@ GET,POST /diak/edit/:id                          -id diák szerkesztése
     saveDiakMW
     renderMW(diakform)
 
-GET      /diak/delete/:id                        -id diák törlése
+GET /diak/delete/:id                             -id diák törlése
     authMW
     getDiakMW
     delDiakMW
-    
 
