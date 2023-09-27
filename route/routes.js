@@ -14,14 +14,14 @@ const getDiakMW = require('../middleware/diak/delDiakMW');
 const saveDiakMW = require('../middleware/diak/saveDiakMW');
 const delDiakMW = require('../middleware/diak/delDiakMW');
 
-
-
+const DiakModel = require('../db/models/diak');
+const TanarModel = require('../db/models/tanar');
 
 
 module.exports = function(app) {
     const objRepo = {
-        TanarModel: "",
-        DiakModel: ""
+        TanarModel: TanarModel,
+        DiakModel: DiakModel
     };
 
     app.get('/tanarok',
