@@ -1,18 +1,28 @@
+Oldalak:
+index.html                  -csak egy oldal néhány gombbal
+
+tanarok.html                -egy táblázat a tanarok listazasához
+tanarform.html              -egy form uj tanár hozzáadásához vagy szerkesztéshez
+
+diakok.html                 -egy táblázat a tanarok listazasához
+diakform.html               -egy form uj diák hozzáadásához vagy szerkesztéshez
+
+
 Routing:
 
 
-GET,POST /login                                 -bejelentkezés
-
-GET /tanarok                                    -tanárok listazasa
-GET, POST /tanarok/add                          -uj tanar hozzadása
-GET, POST /tanarok/edit/:id                     -id tanar szerkesztése
-POST /tanarok/delete/:id                        -id tanar törlése
+GET       /tanarok                            -tanárok listazasa
+GET, POST /tanar/add                          -uj tanar hozzadása
+GET, POST /tanar/edit/:id                     -id tanar szerkesztése
+GET       /tanar/delete/:id                   -id tanar törlése
 
 
-GET /diak                                    -diákok listazasa
-GET, POST /diak/add                          -uj diák hozzadása
-GET, POST /diak/edit/:id                     -id diák szerkesztése
-POST /diak/delete/:id                        -id diák törlése
+GET      /diakok                                 -diákok listazasa
+GET,POST /diak/add                               -uj diák hozzadása
+GET,POST /diak/edit/:id                          -id diák szerkesztése
+GET      /diak/delete/:id                        -id diák törlése
+GET      /diak                                   -diákok listazasa
 
 
-GET /                            -tanárok listázása és tnaulók listázása gomb
+GET /logout                                      -kijelentkezés
+GET /                                            -tanárok listázása és tanulók listázása gomb
