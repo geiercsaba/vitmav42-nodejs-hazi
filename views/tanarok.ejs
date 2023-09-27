@@ -1,0 +1,47 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container" style="margin: 4rem  ">
+    <div class="row">
+        <div class="col-12">
+            <h2>Tanárok lista</h2>
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <th>
+                        Név
+                    </th>
+                    <th>
+                        Születési dátum
+                    </th>
+                    <th>
+                        Szakterület
+                    </th>
+                    <th>
+                        &nbsp;
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Tanár Barbi
+                    </td>
+                    <td>
+                        1998.03.23
+                    </td>
+                    <td>
+                        angol
+                    </td>
+                    <td style="width:30px;white-space: nowrap">
+                        <a href="/tanar/edit/1" class="btn btn-sm btn-primary"><i class="far fa-edit"></i>Módosítás</a>
+                        <a href="/tanar/delete/1" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i>Törlés</a>
+                    </td>
+                </tr>
+            </table>
+            <br/>
+            <a href="/tanar/add" class="btn btn-block btn-success">Új tanár</a>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  
+<%- include("partials/footer.ejs") %>

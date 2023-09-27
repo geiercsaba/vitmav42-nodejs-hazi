@@ -1,4 +1,4 @@
-// const authMW = require('../middleware/auth/authMW');
+const renderMW = require('../middleware/renderMW');
 
 
 module.exports = function(app) {
@@ -25,15 +25,15 @@ module.exports = function(app) {
     
 
     app.get('/diakok',
-        renderMW(objRepo, 'tanarok')
+        renderMW(objRepo, 'diakok')
     );
 
     app.get('/diak/add',
-        renderMW(objRepo, 'tanarokform')
+        renderMW(objRepo, 'diakform')
     );
 
     app.use('/diak/edit/:id',
-        renderMW(objRepo, 'tanarokform')
+        renderMW(objRepo, 'diakform')
     );
 
     app.get('/diak/delete/:id',
