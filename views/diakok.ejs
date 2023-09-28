@@ -23,22 +23,26 @@
                         </th>
                     </tr>
                     <tr>
-                        <td>
-                            Kovács Béla
-                        </td>
-                        <td>
-                            2002.03.23
-                        </td>
-                        <td>
-                            4.
-                        </td>
-                        <td>
-                            4.2
-                        </td>
-                        <td style="width:30px;white-space: nowrap">
-                            <a href="/diak/edit/1" class="btn btn-sm btn-primary"><i class="far fa-edit"></i>Módosítás</a>
-                            <a href="/diak/delete/1" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i>Törlés</a>
-                        </td>
+                        <% diakok.forEach(function(diak){ %>
+                            <tr>
+                                <td>
+                                    <%= diak.nev %>
+                                </td>
+                                <td>
+                                    <%= diak.datum %>
+                                </td>
+                                <td>
+                                    <%= diak.osztaly %>
+                                </td>
+                                <td>
+                                    <%= diak.atlag %>
+                                </td>
+                                <td>
+                                    <a href="/diak/edit/<%= diak._id %>" class="btn btn-sm btn-primary"><i class="far fa-edit"></i>Módosítás</a>
+                                    <a href="/diak/delete/<%= diak._id %>" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i>Törlés</a>
+                                </td>
+                            </tr>
+                        <% }); %>
                     </tr>
                 </table>
                 <br/>

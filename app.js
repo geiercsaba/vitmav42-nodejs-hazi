@@ -10,14 +10,18 @@ app.use(bodyParser.json());
 
 app.use(express.static('static'));
 
-app.use(
-    session({
-        secret: 'secret'
-    })
-);
+//app.use(
+//    session({
+//        secret: 'secret'
+//    })
+//);
 
 require('./route/routes')(app);
 
+app.use((err, req, res, next) => {
+    res.end('Problem...');
+    console.log(err);
+});
 
 app.listen(port, function() {
     console.log('Server running on port: ' + port);

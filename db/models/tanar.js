@@ -4,7 +4,7 @@ const db = require('../db');
 const Tanar = db.model('Tanar', {
     nev: String,
     datum: Date,
-    szak: String,
+    szak: String
 });
 
 module.exports = Tanar;

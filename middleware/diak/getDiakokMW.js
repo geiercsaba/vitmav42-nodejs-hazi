@@ -1,19 +1,18 @@
 /**
- * Visszaadja az összes diákot
+ * Visszaadja az összes tanárt a res.locals.tanarok változóba
  */
 const requireOption = require('../requireOption');
 
-module.exports = function(objectrepository) {
-    const DiakModel = requireOption(objectrepository, 'DiakModel');
-
+module.exports = function(objectrepository) {        
     return function(req, res, next) {
-        DiakModel.find({}, (err, result) => {
-            if (err) {
+        const DiakModel = requireOption(objectrepository, 'DiakModel');
+        DiakModel.find({})
+            .then(result => {
+                res.locals.diakok = result;
+                return next();
+            })
+            .catch(err => {
                 return next(err);
-            }
-
-            res.locals.diakok = result;
-            return next();
-        });
+            });
     };
 };

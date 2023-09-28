@@ -23,65 +23,64 @@ module.exports = function(app) {
         TanarModel: TanarModel,
         DiakModel: DiakModel
     };
-
-    app.get('/tanarok',
-        authMW,
-        getTanarokMW,
-        renderMW(objRepo, 'tanarok')
-    );
     
     app.use('/tanar/add',
-        authMW,
-        saveTanarMW,
+        authMW(objRepo),
+        saveTanarMW(objRepo),
         renderMW(objRepo, 'tanarform')
     );
 
     app.use('/tanar/edit/:id',
-        authMW,
-        getTanarMW,
-        saveTanarMW,
+        authMW(objRepo),
+        getTanarMW(objRepo),
+        saveTanarMW(objRepo),
         renderMW(objRepo, 'tanarform')
     );
 
     app.get('/tanar/delete/:id',
-        authMW,
-        getTanarMW,
-        delTanarMW
+        authMW(objRepo),
+        getTanarMW(objRepo),
+        delTanarMW(objRepo)
     );
 
-
-    app.get('/diakok',
-        authMW,
-        getDiakokMW,
-        renderMW(objRepo, 'diakok')
+    app.get('/tanarok',
+        authMW(objRepo),
+        getTanarokMW(objRepo),
+        renderMW(objRepo, 'tanarok')
     );
+
 
     app.get('/diak/add',
-        authMW, 
-        saveDiakMW,
+        authMW(objRepo), 
+        saveDiakMW(objRepo),
         renderMW(objRepo, 'diakform')
     );
 
     app.use('/diak/edit/:id',
-        authMW,
-        getDiakMW,
-        saveDiakMW,
+        authMW(objRepo),
+        getDiakMW(objRepo),
+        saveDiakMW(objRepo),
         renderMW(objRepo, 'diakform')
     );
 
     app.get('/diak/delete/:id',
-        authMW ,
-        delDiakMW
+        authMW(objRepo),
+        delDiakMW(objRepo)
+    );
+
+    app.get('/diakok',
+        authMW(objRepo),
+        getDiakokMW(objRepo),
+        renderMW(objRepo, 'diakok')
     );
 
     app.use('/logout',
-        logoutMW
+        logoutMW(objRepo)
     );
 
     app.use('/',
-        checkPassMW,
+        checkPassMW(objRepo),
         renderMW(objRepo, 'index')
     );
 
-    
 };

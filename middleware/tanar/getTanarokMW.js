@@ -1,21 +1,18 @@
 /**
- * Visszaadja az összes tanárt
+ * Visszaadja az összes tanárt a res.locals.tanarok változóba
  */
 const requireOption = require('../requireOption');
 
-module.exports = function(objectrepository) {
+module.exports = function(objectrepository) {        
     return function(req, res, next) {
         const TanarModel = requireOption(objectrepository, 'TanarModel');
-
-        return function(req, res, next) {
-            TanarModel.find({}, (err, result) => {
-                if (err) {
-                    return next(err);
-                }
-
+        TanarModel.find({})
+            .then(result => {
                 res.locals.tanarok = result;
                 return next();
+            })
+            .catch(err => {
+                return next(err);
             });
-        };
     };
 };
