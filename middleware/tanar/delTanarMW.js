@@ -4,7 +4,15 @@
 const requireOption = require('../requireOption');
 
 module.exports = function(objectrepository) {
+    const TanarModel = requireOption(objectrepository, 'TanarModel');
+
     return function(req, res, next) {
-        next();
+        if (typeof req.params.id === 'undefined') {
+            return next();
+        }
+
+        TanarModel.findByIdAndRemove(req.params.id)
+        .then(res.redirect("/tanarok"))
+        .catch(err => { console.log(err)});
     };
 };

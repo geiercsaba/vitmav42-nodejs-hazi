@@ -1,19 +1,26 @@
 <%- include("partials/header.ejs") %>
 
-<h1 style="text-align: center; font-size: 20px; margin-top: 2rem;">Tanár hozzáadása / szerkesztése</h1>
+<h1 style="text-align: center; font-size: 20px; margin-top: 2rem;">Tanár <% if (typeof diak === 'undefined') { %>
+    létrehozás
+<% }else{ %>
+    módosítás
+<% } %></h1>
 <div class="px-5 my-5" style="display: flex; justify-content: center; align-items: center;">
     <form id="editTanar" method="POST">
         <div class="mb-3">
             <label class="form-label" for="nev">Név</label>
-            <input class="form-control" id="nev" name="nev" type="text" placeholder="Név" data-sb-validations="required" />
+            <input class="form-control" id="nev" name="nev" type="text"
+            value="<%= (typeof tanar === 'undefined') ? '' : tanar.nev %>" />
         </div>
         <div class="mb-3">
             <label class="form-label" for="datum">Születési dátum</label>
-            <input class="form-control" id="datum" name="datum" type="date" data-sb-validations="required" />
+            <input class="form-control" id="datum" name="datum" type="date"
+            value="<%= (typeof tanar === 'undefined') ? '' : tanar.datum %>" />
         </div>
         <div class="mb-3">
             <label class="form-label" for="szak">Szakterület</label>
-            <input class="form-control" id="szak" name="szak" type="text" placeholder="Szakterület" data-sb-validations="required" />
+            <input class="form-control" id="szak" name="szak" type="text"
+            value="<%= (typeof tanar === 'undefined') ? '' : tanar.szak %>" />
         </div>
         <div class="d-grid">
             <button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Mentés</button>
