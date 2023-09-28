@@ -3,7 +3,7 @@ const db = require('../db');
 
 const Tanar = db.model('Tanar', {
     nev: String,
-    datum: Date,
+    datum: String,
     szak: String
 });
 

@@ -50,7 +50,7 @@ module.exports = function(app) {
     );
 
 
-    app.get('/diak/add',
+    app.use('/diak/add',
         authMW(objRepo), 
         saveDiakMW(objRepo),
         renderMW(objRepo, 'diakform')
