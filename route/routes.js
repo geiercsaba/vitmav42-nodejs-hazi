@@ -10,7 +10,7 @@ const saveTanarMW = require('../middleware/tanar/saveTanarMW');
 const delTanarMW = require('../middleware/tanar/delTanarMW');
 
 const getDiakokMW = require('../middleware/diak/getDiakokMW');
-const getDiakMW = require('../middleware/diak/delDiakMW');
+const getDiakMW = require('../middleware/diak/getDiakMW');
 const saveDiakMW = require('../middleware/diak/saveDiakMW');
 const delDiakMW = require('../middleware/diak/delDiakMW');
 
@@ -39,7 +39,6 @@ module.exports = function(app) {
 
     app.get('/tanar/delete/:id',
         authMW(objRepo),
-        getTanarMW(objRepo),
         delTanarMW(objRepo)
     );
 

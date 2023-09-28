@@ -4,11 +4,15 @@
 const requireOption = require('../requireOption');
 
 module.exports = function(objectrepository) {
+    const DiakModel = requireOption(objectrepository, 'DiakModel');
+
     return function(req, res, next) {
-        if (typeof res.locals.diak === 'undefined') {
+        if (typeof req.params.id === 'undefined') {
             return next();
         }
 
-        res.locals.diak.remove().then( res.redirect('/diakok') );
+        DiakModel.findByIdAndRemove(req.params.id)
+        .then(res.redirect("/diakok"))
+        .catch(err => { console.log(err)});
     };
 };
