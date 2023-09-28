@@ -13,7 +13,6 @@ module.exports = function(objectrepository) {
             typeof req.body.osztaly === 'undefined' ||
             typeof req.body.atlag === 'undefined'
         ) {
-            console.log("szia")
             return next();
         }
 
