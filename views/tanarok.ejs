@@ -19,21 +19,23 @@
                         &nbsp;
                     </th>
                 </tr>
-                <tr>
-                    <td>
-                        Tanár Barbi
-                    </td>
-                    <td>
-                        1998.03.23
-                    </td>
-                    <td>
-                        angol
-                    </td>
-                    <td style="width:30px;white-space: nowrap">
-                        <a href="/tanar/edit/1" class="btn btn-sm btn-primary"><i class="far fa-edit"></i>Módosítás</a>
-                        <a href="/tanar/delete/1" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i>Törlés</a>
-                    </td>
-                </tr>
+                    <% tanarok.forEach(function(tanar){ %>
+                        <tr>
+                            <td>
+                                <%= tanar.nev %>
+                            </td>
+                            <td>
+                                <%= tanar.datum %>
+                            </td>
+                            <td>
+                                <%= tanar.szak %>
+                            </td>
+                            <td>
+                                <a href="/tanar/edit/<%= tanar._id %>" class="btn btn-sm btn-primary"><i class="far fa-edit"></i>Módosítás</a>
+                                <a href="/tanar/delete/<%= tanar._id %>" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i>Törlés</a>
+                            </td>
+                        </tr>
+                    <% }); %>
             </table>
             <br/>
             <a href="/tanar/add" class="btn btn-block btn-success">Új tanár</a>
