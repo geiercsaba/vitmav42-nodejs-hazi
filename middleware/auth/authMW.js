@@ -5,6 +5,10 @@ const requireOption = require('../requireOption');
 
 module.exports = function(objectrepository) {
     return function(req, res, next) {
-        return next();
+        if (typeof req.session.login === 'undefined') {
+            return res.redirect('/');
+        }
+
+        next();
     };
 };
